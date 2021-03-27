@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f6437db918b0d3142ddb37c2beeeec8",
+    "content-hash": "f1a1f4d0b4e32559248d4270219a3e00",
     "packages": [
         {
             "name": "functional-php/fantasy-land",
@@ -759,60 +759,6 @@
                 }
             ],
             "time": "2020-05-25T17:44:05+00:00"
-        },
-        {
-            "name": "facile-it/facile-coding-standard",
-            "version": "0.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facile-it/facile-coding-standard.git",
-                "reference": "5b3fd61bb8e05dd544ca9d95f583ae86d2b90ff6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facile-it/facile-coding-standard/zipball/5b3fd61bb8e05dd544ca9d95f583ae86d2b90ff6",
-                "reference": "5b3fd61bb8e05dd544ca9d95f583ae86d2b90ff6",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1 || ^2.0",
-                "ext-json": "*",
-                "friendsofphp/php-cs-fixer": "^2.16.5",
-                "php": "^7.2 || ^8.0",
-                "symfony/console": "^3.0 || ^4.0 || ^5.0"
-            },
-            "require-dev": {
-                "composer/composer": "^1.3.2 || ^2.0",
-                "composer/semver": "^1.4 || ^2.0 || ^3.0",
-                "mikey179/vfsstream": "^1.6.8",
-                "phpspec/prophecy": "^1.10",
-                "phpunit/phpunit": "^8.5.8",
-                "vimeo/psalm": "^4.1"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Facile\\CodingStandards\\Installer\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Facile\\CodingStandards\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Facile.it coding standard",
-            "keywords": [
-                "Coding Standard",
-                "facile",
-                "facile.it"
-            ],
-            "support": {
-                "issues": "https://github.com/facile-it/facile-coding-standard/issues",
-                "source": "https://github.com/facile-it/facile-coding-standard/tree/0.4.1"
-            },
-            "time": "2021-01-25T10:17:16+00:00"
         },
         {
             "name": "felixfbecker/advanced-json-rpc",

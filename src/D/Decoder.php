@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Emnlmn\Phiode\d;
+namespace Emnlmn\Phiode\D;
 
 use Widmogrod\Monad\Either\Either;
 
 /**
- * @template T
- * @template D
- * @template K as key-of<T>
- * @template P as callable(D[K]): bool
+ * @template T of object
+ * @template D of array<string, mixed>
+ * @template K of key-of<D>
+ * @template P of callable(D[K]): bool
+ * @template R of array<K, P>
  */
-interface Validator
+interface Decoder
 {
     /**
      * @param class-string<T> $targetClass
@@ -33,4 +34,9 @@ interface Validator
      * @return self
      */
     public function withRule(string $key, callable $predicate): self;
+
+    /**
+     * @return R
+     */
+    public function getRules(): array;
 }

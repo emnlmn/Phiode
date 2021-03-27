@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Emnlmn\Phiode;
 
 use Emnlmn\Phiode\Helpers\TestEntity;
-use Emnlmn\Phiode\i\Validator;
+use Emnlmn\Phiode\I\Decoder;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertInstanceOf;
 use function PHPUnit\Framework\assertIsArray;
@@ -14,7 +14,7 @@ use Prophecy\PhpUnit\ProphecyTrait;
 use Widmogrod\Monad\Either;
 
 /**
- * @covers \Emnlmn\Phiode\i\Validator
+ * @covers \Emnlmn\Phiode\I\Decoder
  */
 class ValidatorTest extends TestCase
 {
@@ -24,7 +24,7 @@ class ValidatorTest extends TestCase
     {
         $res = pipe(
             ['b' => 'val', 'a' => 1],
-            (new Validator(TestEntity::class))
+            (new Decoder(TestEntity::class))
                 ->withRule('a', static fn ($a): bool => true)
                 ->withRule('b', static fn ($a): bool => true)
         );
@@ -40,11 +40,13 @@ class ValidatorTest extends TestCase
 
     public function test_unsorted_param(): void
     {
+        $decoder = decode(TestEntity::class)
+            ->withRule('a', static fn ($a): bool => true)
+            ->withRule('b', static fn ($a): bool => true);
+        
         $res = pipe(
             ['a' => 1, 'b' => 'val'],
-            (new Validator(TestEntity::class))
-                ->withRule('a', static fn ($a): bool => true)
-                ->withRule('b', static fn ($a): bool => true)
+            $decoder
         );
 
         assertInstanceOf(Either\Right::class, $res);
@@ -58,13 +60,13 @@ class ValidatorTest extends TestCase
 
     public function test_should_return_errors(): void
     {
-        $validator = (new Validator(TestEntity::class))
+        $decoder = decode(TestEntity::class)
             ->withRule('a', static fn ($a): bool => false)
             ->withRule('b', static fn ($a): bool => false);
 
         $res = pipe(
             ['a' => 1, 'b' => 'val'],
-            $validator,
+            $decoder,
         );
 
         assertInstanceOf(Either\Left::class, $res);

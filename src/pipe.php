@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Emnlmn\Phiode;
 
-if (! function_exists('pipe')) {
+if (! \function_exists('pipe')) {
     /**
      * @template A
      * @template B
@@ -51,7 +51,7 @@ if (! function_exists('pipe')) {
         ?callable $c5 = null,
         ?callable $c6 = null
     ) {
-        switch (func_num_args()) {
+        switch (\func_num_args()) {
             case 7:
                 if (null !== $c2
                     && null !== $c3 && null !== $c4 && null !== $c5 && $c6 !== null) {
