@@ -1,11 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Emnlmn\Phiode;
 
-use Closure;
-
-if (!function_exists('pipe')) {
+if (! function_exists('pipe')) {
     /**
      * @template A
      * @template B
@@ -20,6 +19,7 @@ if (!function_exists('pipe')) {
      * @template C4 as null|callable(D): E
      * @template C5 as null|callable(E): F
      * @template C6 as null|callable(F): G
+     *
      * @param A $take
      * @param C1 $c1
      * @param C2 $c2
@@ -39,6 +39,7 @@ if (!function_exists('pipe')) {
      *             ? E
      *             : C6 is null ? F : G
      * )
+     *
      * @return mixed
      */
     function pipe(
@@ -53,23 +54,34 @@ if (!function_exists('pipe')) {
         switch (func_num_args()) {
             case 7:
                 if (null !== $c2
-                    && null !== $c3 && null !== $c4 && null !== $c5 && $c6 !== null) return $c6($c5($c4($c3($c2($c1($take))))));
+                    && null !== $c3 && null !== $c4 && null !== $c5 && $c6 !== null) {
+                    return $c6($c5($c4($c3($c2($c1($take))))));
+                }
+                // no break
             case 6:
                 if (null !== $c2
-                    && null !== $c3 && null !== $c4 && null !== $c5) return $c5($c4($c3($c2($c1($take)))));
+                    && null !== $c3 && null !== $c4 && null !== $c5) {
+                    return $c5($c4($c3($c2($c1($take)))));
+                }
+                // no break
             case 5:
                 if (null !== $c2
-                    && null !== $c3 && null !== $c4) return $c4($c3($c2($c1($take))));
+                    && null !== $c3 && null !== $c4) {
+                    return $c4($c3($c2($c1($take))));
+                }
+                // no break
             case 4:
-                if (null !== $c2 && null !== $c3) return $c3($c2($c1($take)));
+                if (null !== $c2 && null !== $c3) {
+                    return $c3($c2($c1($take)));
+                }
+                // no break
             case 3:
-                if (null !== $c2) return $c2($c1($take));
+                if (null !== $c2) {
+                    return $c2($c1($take));
+                }
+                // no break
             default:
                 return $c1($take);
         }
     }
 }
-
-
-
-

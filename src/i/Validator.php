@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Emnlmn\Phiode\i;
@@ -17,73 +18,92 @@ use function Widmogrod\Monad\Either\right;
  */
 class Validator implements ValidatorD
 {
+    /**
+     * @var class-string<T>
+     */
     private string $targetClass;
-    
+
     /**
      * @psalm-var array<K, P> $validationRules
-     * @var array<string, callable> $validationRules
+     *
+     * @var array<string, callable>
      */
     private array $validationRules = [];
-    
-    public function __construct(string $a)
+
+    public function __construct(string $targetClass)
     {
-        $this->targetClass = $a;
+        $this->targetClass = $targetClass;
     }
-    
+
     /**
      * @param K $key
      * @param P $predicate
+     *
      * @return self
      */
     public function withRule(string $key, callable $predicate): self
     {
         $this->validationRules[$key] = $predicate;
-        
+
         return $this;
     }
-    
+
     /**
      * @param D $data
-     * @return Either
+     *
      * @throws ReflectionException
+     *
+     * @return Either
      */
     public function __invoke(array $data): Either
     {
         $errors = $this->validate($data);
-        
+
         return $errors
             ? left($errors)
             : right($this->instantiateClass($data));
     }
-    
+
     /**
      * @param D $data
+     *
      * @return array<array-key, string>
      */
     private function validate(array $data): array
     {
         $errors = [];
-        
+
         foreach ($this->validationRules as $key => $validationRule) {
-            $errors = $validationRule($data[$key]) ? 'error' : null;
+            $errors[] = $validationRule($data[$key]) ? null : 'error';
         }
-        
-        return array_unique($errors);
+
+        return array_filter($errors);
     }
-    
+
     /**
      * @param D $data
-     * @return T
      *
      * @throws ReflectionException
+     *
+     * @return T
      */
     private function instantiateClass(array $data): object
     {
         $reflectionClass = new \ReflectionClass($this->targetClass);
-    
+
+        $ctor = $reflectionClass->getConstructor();
+
+        if (null === $ctor) {
+            return new $this->targetClass();
+        }
+
+        $paramNames = array_flip(array_map(static fn (\ReflectionParameter $p) => $p->name, $ctor->getParameters()));
+
+        $args = array_replace($paramNames, $data);
+
         /** @var T $i */
-        $i = $reflectionClass->newInstanceArgs($data);
-        
+        $i = $reflectionClass->newInstanceArgs($args);
+
         return $i;
     }
 }

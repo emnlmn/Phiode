@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Emnlmn\Phiode\d;
@@ -13,13 +14,13 @@ use Widmogrod\Monad\Either;
 interface Validator
 {
     /**
-     * @param class-string<T> $a
-     * @return mixed
+     * @param class-string<T> $targetClass
      */
-    public function __construct(string $a);
-    
+    public function __construct(string $targetClass);
+
     /**
      * @param array $data
+     *
      * @return Either\Either
      */
     public function __invoke(array $data): Either\Either;
