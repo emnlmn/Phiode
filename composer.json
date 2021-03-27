@@ -1,0 +1,14 @@
+{
+    "name": "emnlmn/phiode",
+    "description": "PHP IO refinement library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emanuele Menon",
+            "email": "emnlmn@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
