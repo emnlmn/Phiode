@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Emnlmn\Phiode;
 
-if (! \function_exists('pipe')) {
+use Emnlmn\Phiode\D\Decoder;
+use Emnlmn\Phiode\I\Decoder as DecoderI;
+use function function_exists;
+
+if (! function_exists('pipe')) {
     /**
      * @template A
      * @template B
@@ -57,31 +61,45 @@ if (! \function_exists('pipe')) {
                     && null !== $c3 && null !== $c4 && null !== $c5 && $c6 !== null) {
                     return $c6($c5($c4($c3($c2($c1($take))))));
                 }
-                // no break
+            // no break
             case 6:
                 if (null !== $c2
                     && null !== $c3 && null !== $c4 && null !== $c5) {
                     return $c5($c4($c3($c2($c1($take)))));
                 }
-                // no break
+            // no break
             case 5:
                 if (null !== $c2
                     && null !== $c3 && null !== $c4) {
                     return $c4($c3($c2($c1($take))));
                 }
-                // no break
+            // no break
             case 4:
                 if (null !== $c2 && null !== $c3) {
                     return $c3($c2($c1($take)));
                 }
-                // no break
+            // no break
             case 3:
                 if (null !== $c2) {
                     return $c2($c1($take));
                 }
-                // no break
+            // no break
             default:
                 return $c1($take);
         }
+    }
+}
+
+if (! function_exists('decode')) {
+    /**
+     * @template T
+     *
+     * @param class-string<T> $a
+     *
+     * @return Decoder
+     */
+    function decode(string $a): Decoder
+    {
+        return new DecoderI($a);
     }
 }

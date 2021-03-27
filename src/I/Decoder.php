@@ -30,7 +30,7 @@ final class Decoder implements DecoderD
      * @var R
      */
     private array $validationRules;
-    
+
     /**
      * @param class-string<T> $targetClass
      */
@@ -40,7 +40,7 @@ final class Decoder implements DecoderD
         /** @psalm-suppress InvalidPropertyAssignmentValue */
         $this->validationRules = [];
     }
-    
+
     public function withRule(string $key, callable $predicate): self
     {
         $this->validationRules[$key] = $predicate;

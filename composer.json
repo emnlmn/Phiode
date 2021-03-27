@@ -19,10 +19,7 @@
         "psr-4": {
             "Emnlmn\\Phiode\\": "src/"
         },
-        "files": [
-            "src/pipe.php",
-            "src/decode.php"
-        ]
+        "files": ["src/functions.php"]
     },
     "autoload-dev": {
         "psr-4": {

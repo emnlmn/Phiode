@@ -43,7 +43,7 @@ class ValidatorTest extends TestCase
         $decoder = decode(TestEntity::class)
             ->withRule('a', static fn ($a): bool => true)
             ->withRule('b', static fn ($a): bool => true);
-        
+
         $res = pipe(
             ['a' => 1, 'b' => 'val'],
             $decoder
