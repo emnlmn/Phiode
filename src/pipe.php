@@ -20,7 +20,7 @@ if (!function_exists('pipe')) {
      * @template C4 as null|callable(D): E
      * @template C5 as null|callable(E): F
      * @template C6 as null|callable(F): G
-     * @psalm-param A $value
+     * @param A $take
      * @param C1 $c1
      * @param C2 $c2
      * @param C3 $c3
@@ -42,7 +42,7 @@ if (!function_exists('pipe')) {
      * @return mixed
      */
     function pipe(
-        $value,
+        $take,
         callable $c1,
         ?callable $c2 = null,
         ?callable $c3 = null,
@@ -53,19 +53,19 @@ if (!function_exists('pipe')) {
         switch (func_num_args()) {
             case 7:
                 if (null !== $c2
-                    && null !== $c3 && null !== $c4 && null !== $c5 && $c6 !== null) return $c6($c5($c4($c3($c2($c1($value))))));
+                    && null !== $c3 && null !== $c4 && null !== $c5 && $c6 !== null) return $c6($c5($c4($c3($c2($c1($take))))));
             case 6:
                 if (null !== $c2
-                    && null !== $c3 && null !== $c4 && null !== $c5) return $c5($c4($c3($c2($c1($value)))));
+                    && null !== $c3 && null !== $c4 && null !== $c5) return $c5($c4($c3($c2($c1($take)))));
             case 5:
                 if (null !== $c2
-                    && null !== $c3 && null !== $c4) return $c4($c3($c2($c1($value))));
+                    && null !== $c3 && null !== $c4) return $c4($c3($c2($c1($take))));
             case 4:
-                if (null !== $c2 && null !== $c3) return $c3($c2($c1($value)));
+                if (null !== $c2 && null !== $c3) return $c3($c2($c1($take)));
             case 3:
-                if (null !== $c2) return $c2($c1($value));
+                if (null !== $c2) return $c2($c1($take));
             default:
-                return $c1($value);
+                return $c1($take);
         }
     }
 }

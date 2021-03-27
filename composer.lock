@@ -4,8 +4,127 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "538235bf50a073930cb9d1e7181b35d7",
-    "packages": [],
+    "content-hash": "6f6437db918b0d3142ddb37c2beeeec8",
+    "packages": [
+        {
+            "name": "functional-php/fantasy-land",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/functional-php/fantasy-land.git",
+                "reference": "1e2366e68057bbc7a65d58dd663324eb9b299775"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/functional-php/fantasy-land/zipball/1e2366e68057bbc7a65d58dd663324eb9b299775",
+                "reference": "1e2366e68057bbc7a65d58dd663324eb9b299775",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2",
+                "giorgiosironi/eris": "^0.9",
+                "phpunit/phpunit": "^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FunctionalPHP\\": "./src"
+                },
+                "files": [
+                    "src/FantasyLand/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriel Habryn",
+                    "email": "widmogrod+github@gmail.com"
+                }
+            ],
+            "description": "Specification for interoperability of common algebraic structures in PHP",
+            "support": {
+                "issues": "https://github.com/functional-php/fantasy-land/issues",
+                "source": "https://github.com/functional-php/fantasy-land/tree/1.0.1"
+            },
+            "time": "2021-01-19T18:06:19+00:00"
+        },
+        {
+            "name": "widmogrod/php-functional",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/widmogrod/php-functional.git",
+                "reference": "a1a4edc7f135c4b9364afadcb23d91629255b06c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/widmogrod/php-functional/zipball/a1a4edc7f135c4b9364afadcb23d91629255b06c",
+                "reference": "a1a4edc7f135c4b9364afadcb23d91629255b06c",
+                "shasum": ""
+            },
+            "require": {
+                "functional-php/fantasy-land": "^1",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2",
+                "giorgiosironi/eris": "^0.9",
+                "phpunit/phpunit": "^6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Widmogrod\\": "./src"
+                },
+                "files": [
+                    "src/Functional/array.php",
+                    "src/Functional/functions.php",
+                    "src/Functional/miscellaneous.php",
+                    "src/Functional/listt.php",
+                    "src/Functional/zipping.php",
+                    "src/Functional/sublist.php",
+                    "src/Functional/infinit.php",
+                    "src/Functional/predicates.php",
+                    "src/Functional/strings.php",
+                    "src/Functional/monoid.php",
+                    "src/Functional/setoid.php",
+                    "src/Monad/Either/functions.php",
+                    "src/Monad/Maybe/functions.php",
+                    "src/Monad/Free/functions.php",
+                    "src/Monad/IO/functions.php",
+                    "src/Monad/IO/errors.php",
+                    "src/Monad/Reader/functions.php",
+                    "src/Monad/State/functions.php",
+                    "src/Monad/Writer/functions.php",
+                    "src/Monad/Control/Doo/actions.php",
+                    "src/Monad/Control/Doo/interpretation.php",
+                    "src/Useful/match.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriel Habryn",
+                    "email": "widmogrod@gmail.com"
+                }
+            ],
+            "description": "Functors, Applicative and Monads are fascinating concept. Purpose of this library is to explore them in OOP PHP world.",
+            "support": {
+                "issues": "https://github.com/widmogrod/php-functional/issues",
+                "source": "https://github.com/widmogrod/php-functional/tree/6.0.0"
+            },
+            "time": "2020-10-18T19:52:00+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "amphp/amp",
@@ -1508,6 +1627,58 @@
                 "source": "https://github.com/phpspec/prophecy/tree/1.13.0"
             },
             "time": "2021-03-17T13:42:18+00:00"
+        },
+        {
+            "name": "phpspec/prophecy-phpunit",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/prophecy-phpunit.git",
+                "reference": "2d7a9df55f257d2cba9b1d0c0963a54960657177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/prophecy-phpunit/zipball/2d7a9df55f257d2cba9b1d0c0963a54960657177",
+                "reference": "2d7a9df55f257d2cba9b1d0c0963a54960657177",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8",
+                "phpspec/prophecy": "^1.3",
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prophecy\\PhpUnit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Integrating the Prophecy mocking library in PHPUnit test cases",
+            "homepage": "http://phpspec.net",
+            "keywords": [
+                "phpunit",
+                "prophecy"
+            ],
+            "support": {
+                "issues": "https://github.com/phpspec/prophecy-phpunit/issues",
+                "source": "https://github.com/phpspec/prophecy-phpunit/tree/v2.0.1"
+            },
+            "time": "2020-07-09T08:33:42+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
