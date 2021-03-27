@@ -76,4 +76,14 @@ class PipeTest extends \PHPUnit\Framework\TestCase
         
         self::assertEquals('value is 15', $result);
     }
+    
+    public function test_pipe_broken_chain(): void {
+        $a = 0;
+        $c1 = static fn (int $val): int => $val + 1;
+        $c2 = static fn (int $val): string => "value is $val";
+        
+        $result = pipe($a, $c1, null, $c2);
+        
+        self::assertEquals('value is 1', $result);
+    }
 }
