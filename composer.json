@@ -9,6 +9,31 @@
             "email": "emnlmn@gmail.com"
         }
     ],
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
     "minimum-stability": "stable",
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Emnlmn\\Phiode\\": "src/"
+        },
+        "files": ["src/pipe.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Emnlmn\\Phiode\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^4.6",
+        "psalm/plugin-phpunit": "^0.15.1",
+        "phpunit/phpunit": "^9.5",
+        "facile-it/facile-coding-standard": "^0.4.1"
+    },
+    "scripts": {
+        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "php-cs-fixer fix --diff"
+    }
 }
